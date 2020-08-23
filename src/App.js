@@ -17,6 +17,10 @@ function App() {
     notification: '',
   });
 
+  const [activeState, setActiveState] = useState({
+    activated: false,
+  });
+
   const mainframeHandler = () => {
     setMissileState({
       commands: [
@@ -36,6 +40,9 @@ function App() {
         { name: 'Vital Signs', active: !missileState.commands[3].active },
       ],
     });
+    setActiveState({
+      activated: !activeState.activated,
+    });
   };
 
   const notifyHandler = (event) => {
@@ -54,29 +61,33 @@ function App() {
         changeLatestNotification={notifyHandler}
       ></Notification>
       <br></br>
-      <CommandPanel
-        name={missileState.commands[0].name}
-        active={missileState.commands[0].active}
-      />
-      <br></br>
-      <CommandPanel
-        name={missileState.commands[1].name}
-        active={missileState.commands[1].active}
-        mainframe={missileState.commands[1].mainframe}
-        click={mainframeHandler}
-      >
-        Mainframe Deactivated
-      </CommandPanel>
-      <br></br>
-      <CommandPanel
-        name={missileState.commands[2].name}
-        active={missileState.commands[2].active}
-      />
-      <br></br>
-      <CommandPanel
-        name={missileState.commands[3].name}
-        active={missileState.commands[3].active}
-      />
+      {activeState.activated ? (
+        <div>
+          <CommandPanel
+            name={missileState.commands[0].name}
+            active={missileState.commands[0].active}
+          />
+          <br></br>
+          <CommandPanel
+            name={missileState.commands[1].name}
+            active={missileState.commands[1].active}
+            mainframe={missileState.commands[1].mainframe}
+            click={mainframeHandler}
+          >
+            Mainframe Deactivated
+          </CommandPanel>
+          <br></br>
+          <CommandPanel
+            name={missileState.commands[2].name}
+            active={missileState.commands[2].active}
+          />
+          <br></br>
+          <CommandPanel
+            name={missileState.commands[3].name}
+            active={missileState.commands[3].active}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
