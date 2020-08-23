@@ -10,6 +10,7 @@ const commandPanel = (props) => {
       {props.mainframe ? (
         <button onClick={props.click}>Notify of Mainframe Malfunction</button>
       ) : null}
+      <button onClick={props.abort}>Abort</button>
     </div>
   );
 };

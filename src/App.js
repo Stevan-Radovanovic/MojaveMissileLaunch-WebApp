@@ -6,10 +6,10 @@ import Notification from './Notification/Notification';
 function App() {
   const [missileState, setMissileState] = useState({
     commands: [
-      { name: 'Launch Commands', active: false },
-      { name: 'Mainframe', active: false, mainframe: true },
-      { name: 'Cabin Pressure', active: false },
-      { name: 'Vital Signs', active: false },
+      { id: 1, name: 'Launch Commands', active: false },
+      { id: 2, name: 'Mainframe', active: false, mainframe: true },
+      { id: 3, name: 'Cabin Pressure', active: false },
+      { id: 4, name: 'Vital Signs', active: false },
     ],
   });
 
@@ -25,21 +25,25 @@ function App() {
     setMissileState({
       commands: [
         {
+          id: 1,
           name: 'Launch Commands',
           active: !missileState.commands[0].active,
           mainframe: false,
         },
         {
+          id: 2,
           name: 'Mainframe',
           active: !missileState.commands[1].active,
           mainframe: true,
         },
         {
+          id: 3,
           name: 'Cabin Pressure',
           active: !missileState.commands[2].active,
           mainframe: false,
         },
         {
+          id: 4,
           name: 'Vital Signs',
           active: !missileState.commands[3].active,
           mainframe: false,
@@ -54,6 +58,17 @@ function App() {
   const notifyHandler = (event) => {
     setNotifyState({
       notification: event.target.value,
+    });
+  };
+
+  const deleteCommandHandler = (event, key) => {
+    console.log(key);
+    let commands = [...missileState.commands];
+    console.log(commands);
+    commands = commands.filter((com) => com.id !== key);
+    console.log(commands);
+    setMissileState({
+      commands: commands,
     });
   };
 
@@ -75,7 +90,9 @@ function App() {
                 name={command.name}
                 active={command.active}
                 mainframe={command.mainframe}
+                key={command.id}
                 click={mainframeHandler}
+                abort={(event) => deleteCommandHandler(event, command.id)}
               />
             );
           })}
