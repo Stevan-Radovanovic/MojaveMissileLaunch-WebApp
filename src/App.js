@@ -3,23 +3,27 @@ import './App.css';
 import CommandPanel from './CommandPanel/Command-panel';
 
 function App() {
-  const [missileState, setState] = useState({
+  const [missileState, setMissileState] = useState({
     commands: [
       { name: 'Launch Commands', active: false },
-      { name: 'Mainframe', active: false },
+      { name: 'Mainframe', active: false, mainframe: true },
       { name: 'Cabin Pressure', active: false },
       { name: 'Vital Signs', active: false },
     ],
   });
 
   const mainframeHandler = () => {
-    setState({
+    setMissileState({
       commands: [
         {
           name: 'Launch Commands',
           active: !missileState.commands[0].active,
         },
-        { name: 'Mainframe', active: !missileState.commands[1].active },
+        {
+          name: 'Mainframe',
+          active: !missileState.commands[1].active,
+          mainframe: true,
+        },
         {
           name: 'Cabin Pressure',
           active: !missileState.commands[2].active,
@@ -39,6 +43,8 @@ function App() {
       <CommandPanel
         name={missileState.commands[1].name}
         active={missileState.commands[1].active}
+        mainframe={missileState.commands[1].mainframe}
+        click={mainframeHandler}
       >
         Mainframe Deactivated
       </CommandPanel>

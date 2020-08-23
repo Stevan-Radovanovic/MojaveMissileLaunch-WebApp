@@ -5,6 +5,10 @@ const commandPanel = (props) => {
     <div>
       <p>This is a Command Pannel - Name: {props.name}</p>
       <p>{props.active ? 'Activated' : 'Deactivated'}</p>
+      <button disabled={!props.mainframe} onClick={props.click}>
+        Notify of Mainframe Malfunction
+      </button>
+      <hr></hr>
     </div>
   );
 };
