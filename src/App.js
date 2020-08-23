@@ -47,6 +47,8 @@ function App() {
   return (
     <div className="App">
       <h1>Mojave Missile Launch</h1>
+      <button onClick={mainframeHandler}>Power On/Off</button>
+      <hr></hr>
       <Notification
         notification={notifyState.notification}
         changeLatestNotification={notifyHandler}
@@ -55,6 +57,7 @@ function App() {
         name={missileState.commands[0].name}
         active={missileState.commands[0].active}
       />
+      <br></br>
       <CommandPanel
         name={missileState.commands[1].name}
         active={missileState.commands[1].active}
@@ -63,15 +66,16 @@ function App() {
       >
         Mainframe Deactivated
       </CommandPanel>
+      <br></br>
       <CommandPanel
         name={missileState.commands[2].name}
         active={missileState.commands[2].active}
       />
+      <br></br>
       <CommandPanel
         name={missileState.commands[3].name}
         active={missileState.commands[3].active}
       />
-      <button onClick={mainframeHandler}>Power On/Off</button>
     </div>
   );
 }
