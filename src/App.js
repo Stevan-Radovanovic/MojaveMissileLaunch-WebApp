@@ -27,6 +27,7 @@ function App() {
         {
           name: 'Launch Commands',
           active: !missileState.commands[0].active,
+          mainframe: false,
         },
         {
           name: 'Mainframe',
@@ -36,8 +37,13 @@ function App() {
         {
           name: 'Cabin Pressure',
           active: !missileState.commands[2].active,
+          mainframe: false,
         },
-        { name: 'Vital Signs', active: !missileState.commands[3].active },
+        {
+          name: 'Vital Signs',
+          active: !missileState.commands[3].active,
+          mainframe: false,
+        },
       ],
     });
     setActiveState({
@@ -63,29 +69,16 @@ function App() {
       <br></br>
       {activeState.activated ? (
         <div>
-          <CommandPanel
-            name={missileState.commands[0].name}
-            active={missileState.commands[0].active}
-          />
-          <br></br>
-          <CommandPanel
-            name={missileState.commands[1].name}
-            active={missileState.commands[1].active}
-            mainframe={missileState.commands[1].mainframe}
-            click={mainframeHandler}
-          >
-            Mainframe Deactivated
-          </CommandPanel>
-          <br></br>
-          <CommandPanel
-            name={missileState.commands[2].name}
-            active={missileState.commands[2].active}
-          />
-          <br></br>
-          <CommandPanel
-            name={missileState.commands[3].name}
-            active={missileState.commands[3].active}
-          />
+          {missileState.commands.map((command) => {
+            return (
+              <CommandPanel
+                name={command.name}
+                active={command.active}
+                mainframe={command.mainframe}
+                click={mainframeHandler}
+              />
+            );
+          })}
         </div>
       ) : null}
     </div>
