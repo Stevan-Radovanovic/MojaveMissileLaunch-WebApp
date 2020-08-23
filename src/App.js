@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import CommandPanel from './CommandPanel/Command-panel';
+import Notification from './Notification/Notification';
 
 function App() {
   const [missileState, setMissileState] = useState({
@@ -10,6 +11,10 @@ function App() {
       { name: 'Cabin Pressure', active: false },
       { name: 'Vital Signs', active: false },
     ],
+  });
+
+  const [notifyState, setNotifyState] = useState({
+    notification: '',
   });
 
   const mainframeHandler = () => {
@@ -33,9 +38,19 @@ function App() {
     });
   };
 
+  const notifyHandler = (event) => {
+    setNotifyState({
+      notification: event.target.value,
+    });
+  };
+
   return (
     <div className="App">
       <h1>Mojave Missile Launch</h1>
+      <Notification
+        notification={notifyState.notification}
+        changeLatestNotification={notifyHandler}
+      ></Notification>
       <CommandPanel
         name={missileState.commands[0].name}
         active={missileState.commands[0].active}
