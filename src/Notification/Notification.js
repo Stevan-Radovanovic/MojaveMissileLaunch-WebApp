@@ -1,8 +1,9 @@
 import React from 'react';
+import './Notification.css';
 
 const notification = (props) => {
   return (
-    <div>
+    <div className="Notification">
       <p>This is a Two-Way Binding Notification Panel</p>
       <input
         type="text"
@@ -10,7 +11,6 @@ const notification = (props) => {
         value={props.notification}
       ></input>
       <p>{props.notification}</p>
-      <hr></hr>
     </div>
   );
 };

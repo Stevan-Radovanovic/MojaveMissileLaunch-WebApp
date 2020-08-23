@@ -53,6 +53,7 @@ function App() {
         notification={notifyState.notification}
         changeLatestNotification={notifyHandler}
       ></Notification>
+      <br></br>
       <CommandPanel
         name={missileState.commands[0].name}
         active={missileState.commands[0].active}
