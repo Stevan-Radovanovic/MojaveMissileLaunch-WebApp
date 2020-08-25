@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Notification.module.css';
 
-const notification = (props) => {
+const Notification = (props) => {
   return (
     <div className={classes.Notification}>
       <p>This is a Two-Way Binding Notification Panel</p>
@@ -15,4 +15,4 @@ const notification = (props) => {
   );
 };
 
-export default notification;
+export default Notification;

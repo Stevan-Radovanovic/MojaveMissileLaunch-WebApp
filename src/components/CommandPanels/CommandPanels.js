@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CommandPanel from './CommandPanel/CommandPanel';
 
-const commandPanels = (props) => {
+const CommandPanels = (props) => {
+  useEffect(() => {
+    console.log('Command Panels rendering complete...');
+    return () => {
+      console.log('Command Panels clean up complete...');
+    };
+  }, []);
+
   return (
     <div>
       {props.commands.map((command) => {
@@ -20,4 +27,4 @@ const commandPanels = (props) => {
   );
 };
 
-export default commandPanels;
+export default CommandPanels;

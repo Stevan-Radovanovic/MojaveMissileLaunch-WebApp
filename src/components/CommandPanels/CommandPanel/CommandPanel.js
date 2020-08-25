@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './CommandPanel.module.css';
 
-const commandPanel = (props) => {
+const CommandPanel = (props) => {
   return (
     <div className={classes.Command}>
       <p>This is a Command Pannel - Name: {props.name}</p>
@@ -15,4 +15,4 @@ const commandPanel = (props) => {
   );
 };
 
-export default commandPanel;
+export default CommandPanel;

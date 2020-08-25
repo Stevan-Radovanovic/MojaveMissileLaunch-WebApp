@@ -1,6 +1,6 @@
 import React from 'react';
 
-const cockpit = (props) => {
+const Cockpit = (props) => {
   return (
     <div>
       <h1>Mojave Missile Launch</h1>
@@ -10,4 +10,4 @@ const cockpit = (props) => {
   );
 };
 
-export default cockpit;
+export default Cockpit;

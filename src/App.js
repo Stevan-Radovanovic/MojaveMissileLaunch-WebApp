@@ -23,7 +23,7 @@ function App() {
   });
 
   const mainframeHandler = () => {
-    const misState = missileState.commands;
+    const misState = [...missileState.commands];
     misState.forEach((command) => (command.active = !command.active));
     setMissileState({
       commands: misState,
