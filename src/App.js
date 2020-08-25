@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import classes from './App.module.css';
-import CommandPanel from './components/CommandPanel/Command-panel';
 import Notification from './components/Notification/Notification';
 import Cockpit from './components/Cockpit/Cockpit';
+import CommandPanels from './components/CommandPanels/CommandPanels';
 
 function App() {
   const [missileState, setMissileState] = useState({
@@ -60,20 +60,11 @@ function App() {
       ></Notification>
       <br></br>
       {activeState.activated ? (
-        <div>
-          {missileState.commands.map((command) => {
-            return (
-              <CommandPanel
-                name={command.name}
-                active={command.active}
-                mainframe={command.mainframe}
-                key={command.id}
-                click={mainframeHandler}
-                abort={(event) => deleteCommandHandler(event, command.id)}
-              />
-            );
-          })}
-        </div>
+        <CommandPanels
+          commands={missileState.commands}
+          abort={mainframeHandler}
+          delete={deleteCommandHandler}
+        />
       ) : null}
     </div>
   );
