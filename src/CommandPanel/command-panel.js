@@ -1,9 +1,9 @@
 import React from 'react';
-import './Command-panel.css';
+import classes from './Command-panel.module.css';
 
 const commandPanel = (props) => {
   return (
-    <div className="Command">
+    <div className={classes.Command}>
       <p>This is a Command Pannel - Name: {props.name}</p>
       <p>{props.active ? 'Activated' : 'Deactivated'}</p>
 

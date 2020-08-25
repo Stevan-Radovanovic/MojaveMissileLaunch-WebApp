@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import classes from './App.module.css';
 import CommandPanel from './CommandPanel/Command-panel';
 import Notification from './Notification/Notification';
 
@@ -51,7 +51,7 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className={classes.App}>
       <h1>Mojave Missile Launch</h1>
       <button onClick={mainframeHandler}>Power On/Off</button>
       <hr></hr>

@@ -1,9 +1,9 @@
 import React from 'react';
-import './Notification.css';
+import classes from './Notification.module.css';
 
 const notification = (props) => {
   return (
-    <div className="Notification">
+    <div className={classes.Notification}>
       <p>This is a Two-Way Binding Notification Panel</p>
       <input
         type="text"
