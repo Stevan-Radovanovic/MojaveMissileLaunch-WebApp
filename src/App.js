@@ -6,10 +6,10 @@ import Notification from './Notification/Notification';
 function App() {
   const [missileState, setMissileState] = useState({
     commands: [
-      { id: 1, name: 'Launch Commands', active: false },
+      { id: 1, name: 'Launch Commands', active: false, mainframe: false },
       { id: 2, name: 'Mainframe', active: false, mainframe: true },
-      { id: 3, name: 'Cabin Pressure', active: false },
-      { id: 4, name: 'Vital Signs', active: false },
+      { id: 3, name: 'Cabin Pressure', active: false, mainframe: false },
+      { id: 4, name: 'Vital Signs', active: false, mainframe: false },
     ],
   });
 
@@ -22,34 +22,12 @@ function App() {
   });
 
   const mainframeHandler = () => {
+    const misState = missileState.commands;
+    misState.forEach((command) => (command.active = !command.active));
     setMissileState({
-      commands: [
-        {
-          id: 1,
-          name: 'Launch Commands',
-          active: !missileState.commands[0].active,
-          mainframe: false,
-        },
-        {
-          id: 2,
-          name: 'Mainframe',
-          active: !missileState.commands[1].active,
-          mainframe: true,
-        },
-        {
-          id: 3,
-          name: 'Cabin Pressure',
-          active: !missileState.commands[2].active,
-          mainframe: false,
-        },
-        {
-          id: 4,
-          name: 'Vital Signs',
-          active: !missileState.commands[3].active,
-          mainframe: false,
-        },
-      ],
+      commands: misState,
     });
+
     setActiveState({
       activated: !activeState.activated,
     });
