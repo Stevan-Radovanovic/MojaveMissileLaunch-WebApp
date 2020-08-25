@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import classes from './App.module.css';
-import CommandPanel from './CommandPanel/Command-panel';
-import Notification from './Notification/Notification';
+import CommandPanel from './components/CommandPanel/Command-panel';
+import Notification from './components/Notification/Notification';
+import Cockpit from './components/Cockpit/Cockpit';
 
 function App() {
   const [missileState, setMissileState] = useState({
@@ -52,9 +53,7 @@ function App() {
 
   return (
     <div className={classes.App}>
-      <h1>Mojave Missile Launch</h1>
-      <button onClick={mainframeHandler}>Power On/Off</button>
-      <hr></hr>
+      <Cockpit handler={mainframeHandler} />
       <Notification
         notification={notifyState.notification}
         changeLatestNotification={notifyHandler}
