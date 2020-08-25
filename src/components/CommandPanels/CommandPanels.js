@@ -27,4 +27,4 @@ const CommandPanels = (props) => {
   );
 };
 
-export default CommandPanels;
+export default React.memo(CommandPanels);

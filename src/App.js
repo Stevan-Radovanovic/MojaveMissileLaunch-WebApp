@@ -41,11 +41,8 @@ function App() {
   };
 
   const deleteCommandHandler = (event, key) => {
-    console.log(key);
     let commands = [...missileState.commands];
-    console.log(commands);
     commands = commands.filter((com) => com.id !== key);
-    console.log(commands);
     setMissileState({
       commands: commands,
     });
