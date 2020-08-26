@@ -1,9 +1,10 @@
 import React from 'react';
 import classes from './CommandPanel.module.css';
+import WithClass from '../../../hoc/WithClass';
 
 const CommandPanel = (props) => {
   return (
-    <div className={classes.Command}>
+    <WithClass class={classes.Command}>
       <p>This is a Command Pannel - Name: {props.name}</p>
       <p>{props.active ? 'Activated' : 'Deactivated'}</p>
 
@@ -11,7 +12,7 @@ const CommandPanel = (props) => {
         <button onClick={props.click}>Notify of Mainframe Malfunction</button>
       ) : null}
       <button onClick={props.abort}>Abort</button>
-    </div>
+    </WithClass>
   );
 };
 

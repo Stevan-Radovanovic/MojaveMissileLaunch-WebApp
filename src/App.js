@@ -3,6 +3,7 @@ import classes from './App.module.css';
 import Notification from './components/Notification/Notification';
 import Cockpit from './components/Cockpit/Cockpit';
 import CommandPanels from './components/CommandPanels/CommandPanels';
+import WithClass from './hoc/WithClass';
 
 function App() {
   const [missileState, setMissileState] = useState({
@@ -49,7 +50,7 @@ function App() {
   };
 
   return (
-    <div className={classes.App}>
+    <WithClass class={classes.App}>
       <Cockpit handler={mainframeHandler} />
       <Notification
         notification={notifyState.notification}
@@ -63,7 +64,7 @@ function App() {
           delete={deleteCommandHandler}
         />
       ) : null}
-    </div>
+    </WithClass>
   );
 }
 
