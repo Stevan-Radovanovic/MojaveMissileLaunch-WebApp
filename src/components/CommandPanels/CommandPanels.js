@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import CommandPanel from './CommandPanel/CommandPanel';
+import PropTypes from 'prop-types';
 
 const CommandPanels = (props) => {
   useEffect(() => {
@@ -25,6 +26,11 @@ const CommandPanels = (props) => {
       })}
     </div>
   );
+};
+
+CommandPanels.propTypes = {
+  delete: PropTypes.func,
+  commands: PropTypes.array,
 };
 
 export default React.memo(CommandPanels);

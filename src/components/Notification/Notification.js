@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Notification.module.css';
+import PropTypes from 'prop-types';
 
 const Notification = (props) => {
   return (
@@ -13,6 +14,11 @@ const Notification = (props) => {
       <p>{props.notification}</p>
     </div>
   );
+};
+
+Notification.propTypes = {
+  notification: PropTypes.string,
+  changeLatestNotification: PropTypes.func,
 };
 
 export default React.memo(Notification);
